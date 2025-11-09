@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Ravioli - Restaurante</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!--========================
+                NAVBAR
+        ========================-->
+
+  <div class="nav-container d-flex justify-content-between align-items-center p-3 bg-danger text-white">
+    <!-- Nav Izquierda -->
+    <div class="d-flex align-items-center gap-3">
+      <!-- Logo Delivery -->
+      <div class="delivery-info d-flex align-items-center gap-2">
+        <img src="img/image logo/img delivery.png" alt="Delivery" width="30">
+        <span>Delivery Sede (Comas y Los Olivos)</span><span>|</span>
+      </div>
+      <!-- Links hide-mobile-->
+      <div class="nav-links d-none d-md-flex align-items-center gap-2">
+        <a href="#" class="nav-link hide-mobile" data-bs-toggle="modal" data-bs-target="#termsModal">Términos &
+          Condiciones</a>
+        <span>|</span>
+        <a href="#" class="nav-link hide-mobile" data-bs-toggle="modal" data-bs-target="#socialModal">Síguenos</a>
+        <span>|</span>
+        <a href="#" class="nav-link hide-mobile" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a>
+      </div>
+    </div>
+
+    <!-- Nav Derecha -->
+    <div class="nav-right d-flex align-items-center gap-2">
+      <!-- Boton de apertura del Menú mobile-->
+      <button class="btn btn-light login-btn d-none d-md-inline-block" data-bs-toggle="modal"
+        data-bs-target="#loginModal">
+        Login
+      </button>
+      <button class="btn btn-light menu-btn d-inline-block d-md-none" type="button" onclick="openNav()">
+        Menu
+      </button>
+    </div>
+
+    <!-- Menú mobile -->
+    <div id="mobile-menu" class="overlay">
+      <a href="javascript:void(0)" class="close" onclick="closeNav()">&times;</a>
+      <div class="overlay-content d-flex flex-column align-items-center justify-content-center">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Términos & Condiciones</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#socialModal">Síguenos</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrate</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+      </div>
+    </div>
+  </div> 
+  <!-- FIN NAV -->
+
+  <!--========================
+            MODALES
+    ========================-->
+
+  <!-- Modal Términos & Condiciones -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="termsModalLabel">Términos & Condiciones</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>1. Pedidos y entregas:</strong> Los tiempos de entrega son estimados y pueden variar.
+            No
+            nos responsabilizamos por retrasos externos.</p>
+          <p><strong>2. Precios:</strong> Los precios están sujetos a cambios sin previo aviso. Los
+            precios
+            finales serán los indicados al momento de la compra.</p>
+          <p><strong>3. Devoluciones:</strong> No se aceptan devoluciones de alimentos por razones de
+            sabor o
+            preferencia. Solo aceptamos reclamos por productos dañados o erróneos.</p>
+          <p><strong>4. Uso del sitio:</strong> El contenido es solo para uso personal. Queda prohibida la
+            reproducción sin autorización.</p>
+          <p><strong>5. Privacidad:</strong> Tus datos personales serán usados únicamente para procesar tu
+            pedido y no serán compartidos con terceros.</p>
+          <p>Al usar este sitio, aceptas estos términos.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Redes Sociales -->
+  <div class="modal fade" id="socialModal" tabindex="-1" aria-labelledby="socialModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="socialModalLabel">Redes Sociales</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>¡Conéctate con nosotros en las siguientes plataformas!</p>
+          <div style="display: flex; gap: 20px;">
+            <a href="https://www.facebook.com/Elravioli" target="_blank" class="btn btn-primary">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://www.instagram.com/elravioli" target="_blank" class="btn btn-danger">
+              <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://wa.me/967268611" target="_blank" class="btn btn-success">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🌟 Modal Moderno de Registro -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modern-register">
+      <div class="modal-header border-0 justify-content-center">
+        <h4 class="modal-title fw-bold" id="registerModalLabel">Crear cuenta ✨</h4>
+      </div>
+
+      <div class="modal-body">
+        <form id="registerForm" class="register-form">
+          <div class="form-group mb-3">
+            <input type="text" class="form-control form-control-lg" placeholder="Nombre completo" required>
+          </div>
+          <div class="form-group mb-3">
+            <input type="email" class="form-control form-control-lg" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group mb-3">
+            <input type="password" class="form-control form-control-lg" placeholder="Contraseña" required>
+          </div>
+          <div class="form-group mb-4">
+            <input type="password" class="form-control form-control-lg" placeholder="Confirmar contraseña" required>
+          </div>
+          <button type="submit" class="btn-registro w-100">Registrarme</button>
+        </form>
+
+        <!-- Mensaje de éxito -->
+        <div id="registerSuccess" class="success-message text-center d-none">
+          <div class="success-icon">🎉</div>
+          <h5 class="text-success mt-3 mb-0">¡Registro completado con éxito!</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Modal Moderno de Inicio de Sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modern-login">
+      <div class="modal-header border-0 justify-content-center">
+        <h4 class="modal-title fw-bold" id="loginModalLabel">Bienvenido a El Ravioli👋</h4>
+      </div>
+
+      <div class="modal-body">
+        <form id="loginForm" class="login-form">
+          <div class="form-group mb-3">
+            <input type="text" class="form-control form-control-lg" placeholder="Usuario" required>
+          </div>
+          <div class="form-group mb-4">
+            <input type="password" class="form-control form-control-lg" placeholder="Contraseña" required>
+          </div>
+          <button type="submit" class="btn-inicio-sesion w-100">Iniciar sesión</button>
+        </form>
+
+        <!-- Mensaje de éxito -->
+        <div id="loginSuccess" class="success-message text-center d-none">
+          <div class="success-icon">✅</div>
+          <h5 class="text-success mt-3 mb-0">¡Inicio de sesión correcto!</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--FIN MODALES-->
+
+<!--========================
+        MENU DE PRODUCTOS
+    ========================-->    
+
+  <nav class="menu-productos navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="img/image logo/Logo Oficial.png" alt="Logo" height="60" width="220"
+          class="d-inline-block align-text-top">
+      </a>
+
+      <!-- Toggle button (hamburger menu) for small screens -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu items -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Entremeses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pizzas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pastas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Combo de Pastas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Postres</a>
+          </li>
+
+          <!-- Dropdown Bebidas -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Bebidas
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Vinos</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Sangría</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Gaseosa</a></li>
+            </ul>
+          </li>
+
+          <!-- Dropdown Ofertas Delivery -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ofertas Delivery
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Oferta 1</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Oferta 2</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Oferta 3</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Oferta 4</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Oferta 5</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Oferta 6</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<!--FIN MENU DE PRODUCTOS-->
+
+<!--========================
+           CATEGORÍAS
+    ========================-->
+
+  <!-- Contenedor de categorías + búsqueda -->
+  <div class="menu-categorias d-flex flex-wrap align-items-center justify-content-between">
+    <!-- Botón Categorías -->
+    <div class="dropdown">
+      <button class="btn btn-categorias dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-list-ul"></i> Categorías
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Promociones</a></li>
+        <li><a class="dropdown-item" href="#">Novedades</a></li>
+        <li><a class="dropdown-item" href="#">Contáctanos</a></li>
+      </ul>
+    </div>
+    <!-- Barra de búsqueda -->
+    <form class="barra-busqueda d-flex w-100 w-md-auto">
+      <input class="form-control input-busqueda" type="search" placeholder="Busca tu producto..." aria-label="Buscar">
+      <button class="btn boton-busqueda" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </form>
+  </div>
+<!--FIN DE CATEGORIAS-->
+
+<!--Whatsapp-->
+  <div class="whatsapp">
+  <span>¿Pedidos o consultas? <strong>Escríbenos</strong></span>
+  <a href="https://wa.me/982836472" target="_blank" rel="noopener noreferrer">
+    <img src="img\logo wsp.png" alt="whatsapp" width="50" height="50">
+  </a>
+</div>
+  <!--Zona Paginas-->
+  <nav class="navbar-pagina bg-body-tertiary">
+    <div class="container-fluid">
+      <span class="pagina">Home</span>
+    </div>
+  </nav>
+
+<!--========================
+            CARRUSEL
+    ========================-->
+
+  <!--Carrusel de imagenes-->
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/image productos/lasagnar.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/image local/local-trapiche.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/image local/local-LosOlvios.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item active">
+        <img src="img/image productos/tres-pastas.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<!--========================
+            DELIVERY
+    ========================-->
+  <section class="delivery-section">
+    <div class="delivery-info">
+      <div class="delivery-phone">
+        <img src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png" alt="Delivery">
+        <div>
+          <span>Delivery</span>
+          <h2>967 268 611</h2>
+        </div>
+      </div>
+      <div class="branches">
+        <div class="branch">
+          <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Ubicación">
+          <div>
+            <h3>Comas</h3>
+            <p><a href="https://www.google.com/maps/place/El+Ravioli/@-11.9201003,-77.0611516,3a,75y,104.86h,93.76t/data=!3m7!1e1!3m5!1slXxf2LIm9hSsQj7xmkWHiA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-3.761404223650217%26panoid%3DlXxf2LIm9hSsQj7xmkWHiA%26yaw%3D104.86272068894927!7i16384!8i8192!4m14!1m7!3m6!1s0x9105d1b213f84fe9:0x6eb9c6fa90b9ea75!2sEl+Ravioli!8m2!3d-11.9201296!4d-77.0610463!16s%2Fg%2F11gzz7w1s!3m5!1s0x9105d1b213f84fe9:0x6eb9c6fa90b9ea75!8m2!3d-11.9201296!4d-77.0610463!16s%2Fg%2F11gzz7w1s?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="address-link">Av. Chillón Trapiche</a></p>
+            <p>Delivery: 729-7299</p>
+            <p>Celular: 982836472 / 983061154</p>
+          </div>
+        </div>
+        <div class="branch">
+          <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Ubicación">
+          <div>
+            <h3>Los Olivos</h3>
+            <p><a href="https://www.google.com/maps/place/El+Ravioli/@-11.9892931,-77.0748062,17z/data=!4m6!3m5!1s0x9105ce5b0b73fa2b:0x601c5534158677de!8m2!3d-11.9892984!4d-77.0722259!16s%2Fg%2F11h07hsvq?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="address-link">Av. Las Palmeras 3895</a></p>
+            <p>Delivery: 523-3655</p>
+            <P>Celular: 967268611</P>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!--========================
+      SECCIÓN DE PRODUCTOS
+    ========================-->
+
+  <section class="productos">
+    <h2>Productos destacados</h2>
+  </section>
+  <!-- Sección de Tarjetas -->
+  <div>
+    <div class="container my-5">
+      <div class="row">
+        <!-- Tarjeta 1 -->
+        <div class="col-md-4">
+          <div class="card ">
+            <img src="img/image productos/o-1-min.jpg" class="card-img-top" alt="Imagen 1">
+            <div class="card-body">
+              <h5 class="card-title">Oferta 01</h5>
+              <p class="card-text">S/62.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/O-2-min.jpg" class="card-img-top" alt="Imagen 2">
+            <div class="card-body">
+              <h5 class="card-title">Oferta 02</h5>
+              <p class="card-text">S/49.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Spagheti-min.jpg" class="card-img-top" alt="Imagen 3">
+            <div class="card-body">
+              <h5 class="card-title">Spaghetti</h5>
+              <p class="card-text">S/24.20 – S/44.20</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row">
+        <!-- Tarjeta 4 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Caneloni.jpg" class="card-img-top" alt="Imagen 1">
+            <div class="card-body">
+              <h5 class="card-title">Caneloni</h5>
+              <p class="card-text">S/28.80</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Ravioles-min.jpg" class="card-img-top" alt="Imagen 2">
+            <div class="card-body">
+              <h5 class="card-title">Ravioles</h5>
+              <p class="card-text">S/28.30 – S/44.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-3Pastas-min-1.jpg" class="card-img-top" alt="Imagen 3">
+            <div class="card-body">
+              <h5 class="card-title">Tres Pastas</h5>
+              <p class="card-text">S/38.90</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row">
+        <!-- Tarjeta 6 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Hawaiana-min.jpg" class="card-img-top" alt="Imagen 1">
+            <div class="card-body">
+              <h5 class="card-title">Pizza Hawaiana</h5>
+              <p class="card-text">S/32.40 – S/63.30</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Tradicion-min.jpg" class="card-img-top" alt="Imagen 2">
+            <div class="card-body">
+              <h5 class="card-title">Pizza Tradición</h5>
+              <p class="card-text">S/34.60 – S/67.80</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 7 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Delacasa-min.jpg" class="card-img-top" alt="Imagen 3">
+            <div class="card-body">
+              <h5 class="card-title">Pizza de la casa</h5>
+              <p class="card-text">S/35.40 – S/71.60</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <div class="row">
+        <!-- Tarjeta 8 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Lasagna.jpg" class="card-img-top" alt="Imagen 1">
+            <div class="card-body">
+              <h5 class="card-title">S/27.00</h5>
+              <p class="card-text">S/27.00</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 9 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="img/image productos/P-Fettucine.3.jpg" class="card-img-top" alt="Imagen 2">
+            <div class="card-body">
+              <h5 class="card-title">Fettucine</h5>
+              <p class="card-text">S/26.40 – S/46.20</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN SECCIÓN DE PRODUCTOS-->
+
+  <!--========================
+              FOOTER
+     ========================-->
+
+  <!--Zona Informacion-->
+  <footer class="text-center text-lg-start bg-light text-muted">
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <img class="img-paycard" src="img/image logo/Logo Oficial.png" alt="">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="Delivery"></i>Delivery
+            </h6>
+            <p class="Numero-Delivery">967 268 611</p>
+            <p class="fw-bold">Horarios</p>
+            <p class="fw-bold">Locales:</p>
+            <p>Lunes a sábados de 12pm a 12am</p>
+            <p>Domingos 12pm a 11pm</p>
+            <p class="fw-bold">Tienda Online</p>
+            <p>Lunes a sábados de 12pm a 10:30pm</p>
+            <p>Domingos: 12pm a 9:30pm</p>
+          </div>
+          <!--Metodos de pago-->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Metodos de pago
+            </h6>
+            <img class="img-paycard" src="img/cards_with_pagoefectivo.png" alt="">
+            <p>Paga con tu tarjeta de crédito/débito o PagoEfectivo (nuevo) a través de Culqi. ¡Elige el medio de pago que más te convenga!</p>
+            <h6 class="text-uppercase fw-bold mb-4">
+              Ravioli
+            </h6>
+            <p><a href=""></a>Home</p>
+            <p><a href=""></a>Nosotros</p>
+            <p><a href=""></a>Contactos</p>
+            <p><a href=""></a>Lista de gustitos</p>
+          </div>
+          <!--Cuenta-->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto  
+          mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Cuenta
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pedidos</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Direcciones</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Detalles de la cuenta</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Terminos y condiciones</a>
+            </p>
+          </div>
+          <!--Contacto-->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+            <p><i class="fas fa-home me-3"></i><a href="https://www.google.com/maps/place/El+Ravioli/@-11.9201003,-77.0611516,3a,75y,104.86h,93.76t/data=!3m7!1e1!3m5!1slXxf2LIm9hSsQj7xmkWHiA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D-3.761404223650217%26panoid%3DlXxf2LIm9hSsQj7xmkWHiA%26yaw%3D104.86272068894927!7i16384!8i8192!4m14!1m7!3m6!1s0x9105d1b213f84fe9:0x6eb9c6fa90b9ea75!2sEl+Ravioli!8m2!3d-11.9201296!4d-77.0610463!16s%2Fg%2F11gzz7w1s!3m5!1s0x9105d1b213f84fe9:0x6eb9c6fa90b9ea75!8m2!3d-11.9201296!4d-77.0610463!16s%2Fg%2F11gzz7w1s?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="address-link">Av. Chillón Trapiche</a></p>
+            <p><i class="fas fa-phone me-3"></i>7297299</p>
+            <p><i class="fas fa-phone me-3"></i><a href="https://wa.me/982836472">982836472</a></p>
+            <p><i class="fas fa-phone me-3"></i><a href="https://wa.me/983061154">983061154</a></p>
+            <p><i class="fas fa-home me-3"></i><a href="https://www.google.com/maps/place/El+Ravioli/@-11.9892931,-77.0748062,17z/data=!4m6!3m5!1s0x9105ce5b0b73fa2b:0x601c5534158677de!8m2!3d-11.9892984!4d-77.0722259!16s%2Fg%2F11h07hsvq?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="address-link">Av. Las Palmeras 3895</a></p>
+            <p><i class="fas fa-phone me-3"></i>5233645</p>
+            <p><i class="fas fa-phone me-3"></i><a href="https://wa.me/967268611">967268611</a></p>
+          </div>
+          
+  </footer>
+
+  <!--========================
+            SCRIPTS
+    ========================-->
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/menu-mobile.js"></script>
+
+</body>
+</html>
